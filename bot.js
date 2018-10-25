@@ -3,10 +3,11 @@ const bot = new Discord.Client();
 const config = require("./config.json");
 let mode = 1;
 
-//playing message
+//Bot instance and Playing message
+let bot = new Discord.Client();
 bot.on("ready", function() {
     console.log('Logged in as '+bot.user.username);
-    bot.user.setActivity('the world burn [c!help for info]', { type: 'WATCHING' });
+    bot.user.setActivity('God', { type: 'PLAYING' });
 })
 
 //random number generator

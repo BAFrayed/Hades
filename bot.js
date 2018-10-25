@@ -124,6 +124,40 @@ bot.on("message", function(message) {
             .addField("Engine:", getRandomEngine())
             .setFooter(message.createdAt.toString().substring(0,message.createdAt.toString().indexOf('+'))))
     }
+//role management
+let mentionedUser = message.mentions.members.first();
+let racer = message.guild.roles.find(r => r.name === "Racer");
+let veteran = message.guild.roles.find(r => r.name === "Veteran");
+let pro = message.guild.roles.find(r => r.name === "Pro");
+let legend = message.guild.roles.find(r => r.name === "Legend");
+let rookie = message.guild.roles.find(r => r.name === "Rookie");
+
+if(!message.member.roles.some(r=>["Moderator"].includes(r.name))) return;
+
+else if (message.content.startsWith(config.prefix + "racer"))
+{
+    mentionedUser.addRole(racer).catch(console.error)
+    message.channel.send("You have updated " + mentionedUser + "'s role to racer")
+    mentionedUser.removeRole(rookie).catch(console.error);
+}
+else if (message.content.startsWith(config.prefix + "pro"))
+{
+    mentionedUser.addRole(pro).catch(console.error)
+    message.channel.send("You have updated " + mentionedUser + "'s role to pro")
+    mentionedUser.removeRole(racer).catch(console.error)
+}
+else if (message.content.startsWith(config.prefix + "veteran"))
+{
+    mentionedUser.addRole(veteran).catch(console.error)
+    message.channel.send("You have updated " + mentionedUser + "'s role to veteran")
+    mentionedUser.removeRole(pro).catch(console.error)
+}
+else if (message.content.startsWith(config.prefix + "legend"))
+{
+    mentionedUser.addRole(racer).catch(console.error)
+    message.channel.send("You have updated " + mentionedUser + "'s role to legend")
+    mentionedUser.removeRole(veteran).catch(console.error)
+}
 } 
 });
 

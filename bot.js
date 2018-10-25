@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const bot = new Discord.Client();
 const config = require("./config.json");
 let mode = 1;
 
@@ -127,4 +126,6 @@ bot.on("message", function(message) {
     }
 } 
 });
+
+
 bot.login(process.env.BOT_TOKEN);

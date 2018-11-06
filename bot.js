@@ -28,6 +28,16 @@ function getRandomHull(max){
 //When a message is received
 bot.on("message", function(message) {
 
+        //ez pz lemon squeezy
+        if(message.content.toLowerCase("ez"))
+        {
+            message.channel.send("pz")
+        }
+        else if(message.content.toLowerCase("ez pz"))
+        {
+            message.channel.send("Lemon Squeezy")
+        }
+
     if(message.channel.type == "dm") return ;
     if(!message.content.startsWith(config.prefix) || message.author.bot) return;
     
@@ -124,15 +134,7 @@ bot.on("message", function(message) {
             .addField("Engine:", getRandomEngine())
             .setFooter(message.createdAt.toString().substring(0,message.createdAt.toString().indexOf('+'))))
     }
-    //ez pz lemon squeezy
-    else if(message.content.toLowerCase("ez"))
-    {
-        message.channel.send("pz")
-    }
-    else if(message.content.toLowerCase("ez pz"))
-    {
-        message.channel.send("Lemon Squeezy")
-    }
+
 //role management
 let mentionedUser = message.mentions.members.first();
 let racer = message.guild.roles.find(r => r.name === "Racer");

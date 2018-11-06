@@ -124,6 +124,15 @@ bot.on("message", function(message) {
             .addField("Engine:", getRandomEngine())
             .setFooter(message.createdAt.toString().substring(0,message.createdAt.toString().indexOf('+'))))
     }
+    //ez pz lemon squeezy
+    else if(message.content.toLowerCase("ez"))
+    {
+        message.channel.send("pz")
+    }
+    else if(message.content.toLowerCase("ez pz"))
+    {
+        message.channel.send("Lemon Squeezy")
+    }
 //role management
 let mentionedUser = message.mentions.members.first();
 let racer = message.guild.roles.find(r => r.name === "Racer");
